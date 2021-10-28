@@ -1,0 +1,8 @@
+li a {
+    color: red;
+    font-size: 150%;
+}
+
+body {
+    background: white url("images/bg_main.jpg") no-repeat;
+}
