@@ -8,7 +8,7 @@ class Tab(models.Model):
     band = models.CharField(max_length=100)
     album = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
-    instument = models.CharField(max_length=100)
+    instrument = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):

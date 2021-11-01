@@ -1,14 +1,19 @@
 <h1>Tabs For Everyone</h1>
 
+<a href="{% url 'tfe:tab_create' %}">Add tab</a>
+
 <table>
     <tr>
-        <th><h2>Tabs:</h2></th>
+        <th>Tabs:</th>
+        <th></th>
+        <th></th>
     </tr>
 
     {% for tab in tabs %}
         <tr>
             <td>{{ tab.band }} – {{ tab.title }}</td>
             <td><a href="{% url 'tfe:tab' tab.id %}">View</a></td>
+            <td><a href="{% url 'tfe:tab_update' tab.id %}">Edit</a></td>
         </tr>
         {% empty %}
             <h3>No tabs in list</h3>
