@@ -10,6 +10,12 @@
 <h1>Tabs For Everyone</h1>
 
 <a href="{% url 'tfe:tab_create' %}">Add tab</a>
+
+<form method="GET">
+    <input type="text" name="search_area" value="{{ search_input }}">
+    <input type="submit" value="Search">
+</form>
+
 <table>
     <tr>
         <th>Tabs:</th>
