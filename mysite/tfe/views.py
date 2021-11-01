@@ -1,5 +1,9 @@
 from django.http import HttpResponse
+from django.views.generic.list import ListView
+
+from .models import Tab
 
 
-def index(request):
-    return HttpResponse("Hello, World! You're at the TFE index.")
+class TabsView(ListView):
+    model = Tab
+    context_object_name = 'tabs'

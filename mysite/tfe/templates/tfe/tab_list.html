@@ -1,1 +1,15 @@
 <h1>Tabs For Everyone</h1>
+
+<table>
+    <tr>
+        <th><h2>Tabs:</h2></th>
+    </tr>
+
+    {% for tab in tabs %}
+        <tr>
+            <td>{{ tab.band }} – {{ tab.title }}</td>
+        </tr>
+        {% empty %}
+            <h3>No tabs in list</h3>
+    {% endfor %}
+</table>
