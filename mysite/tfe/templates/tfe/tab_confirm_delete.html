@@ -1,0 +1,6 @@
+<a href="{% url 'tfe:tabs' %}">Nah, I'm out</a>
+<form method="POST">
+    {% csrf_token %}
+    <p>Have you thought twice before deleting a piece of art? ["{{ tab }}"]</p>
+    <input type="submit" value="I'm risky guy.">
+</form>
