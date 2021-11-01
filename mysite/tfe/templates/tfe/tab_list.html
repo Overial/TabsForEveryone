@@ -8,6 +8,7 @@
     {% for tab in tabs %}
         <tr>
             <td>{{ tab.band }} – {{ tab.title }}</td>
+            <td><a href="{% url 'tfe:tab' tab.id %}">View</a></td>
         </tr>
         {% empty %}
             <h3>No tabs in list</h3>
