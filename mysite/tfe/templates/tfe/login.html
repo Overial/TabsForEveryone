@@ -1,3 +1,6 @@
+{% extends 'tfe/main.html' %}
+{% block content %}
+
 <h1>Login</h1>
 
 <form method="POST">
@@ -7,3 +10,5 @@
 </form>
 
 <p>Don't have an account yet? <a href="{% url 'tfe:register' %}">Register</a></p>
+
+{% endblock content %}
