@@ -11,33 +11,42 @@ from django.urls import reverse_lazy
 from .models import Tab
 
 
+# View for login functionality
 class CustomLoginView(LoginView):
+    # Specify the template
     template_name = 'tfe/login.html'
+    # Specify needed fields for form
     fields = '__all__'
+    # Redirect already authenticated user from that view
     redirect_authenticated_user = True
 
+    # Redirect user if success
     def get_success_url(self):
         return reverse_lazy('tfe:tabs')
 
 
+# View for register
 class RegisterPageView(FormView):
     template_name = 'tfe/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('tfe:tabs')
 
+    # Save user
     def form_valid(self, form):
         user = form.save()
         if user is not None:
             login(self.request, user)
         return super(RegisterPageView, self).form_valid(form)
 
+    # Redirect registered user
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
             return redirect('tfe:tabs')
         return super(RegisterPageView, self).get(*args, **kwargs)
 
 
+# View for tab list functionality
 class TabList(LoginRequiredMixin, ListView):
     model = Tab
     context_object_name = 'tabs'

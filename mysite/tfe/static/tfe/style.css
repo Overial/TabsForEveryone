@@ -1,3 +1,22 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
 body {
-	background-color: aqua;
+    background-color: #1a1c1b;
+    padding-top: 50px;
+}
+
+.container {
+	max-width: 600px;
+	
+	margin: auto;
+	padding: 15px;
+	
+	background-color: #9196a1;
+	
+	box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+	-webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+
+	border-radius: 25px;
 }
