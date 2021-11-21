@@ -3,8 +3,9 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import Permission
 from django.contrib.auth import login
 from django.urls import reverse_lazy
 
@@ -35,6 +36,7 @@ class RegisterPageView(FormView):
     # Save user
     def form_valid(self, form):
         user = form.save()
+
         if user is not None:
             login(self.request, user)
         return super(RegisterPageView, self).form_valid(form)
@@ -47,11 +49,12 @@ class RegisterPageView(FormView):
 
 
 # View for tab list functionality
-class TabList(LoginRequiredMixin, ListView):
+class TabList(ListView):
     model = Tab
     context_object_name = 'tabs'
     template_name = 'tfe/index.html'
 
+    # Function for user searching
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         search_input = self.request.GET.get('search_area') or ''
@@ -67,7 +70,7 @@ class TabList(LoginRequiredMixin, ListView):
         return context
 
 
-class TabDetail(LoginRequiredMixin, DetailView):
+class TabDetail(DetailView):
     model = Tab
     fields = '__all__'
     context_object_name = 'tab'
@@ -75,7 +78,7 @@ class TabDetail(LoginRequiredMixin, DetailView):
 
 class TabCreate(LoginRequiredMixin, CreateView):
     model = Tab
-    fields = ['band', 'album', 'title', 'instrument', 'description']
+    fields = ['band', 'album', 'title', 'instrument', 'description', 'tab_image']
     success_url = reverse_lazy('tfe:tabs')
 
 
@@ -85,7 +88,8 @@ class TabUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('tfe:tabs')
 
 
-class TabDelete(LoginRequiredMixin, DeleteView):
+class TabDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Tab
     context_object_name = 'tab'
     success_url = reverse_lazy('tfe:tabs')
+    permission_required = 'tfe.can_delete_tabs'

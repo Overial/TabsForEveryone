@@ -10,6 +10,7 @@ class Tab(models.Model):
     title = models.CharField(max_length=100)
     instrument = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
+    tab_image = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return self.band + ' – ' + self.title
