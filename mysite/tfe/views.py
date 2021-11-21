@@ -54,17 +54,19 @@ class TabList(ListView):
     context_object_name = 'tabs'
     template_name = 'tfe/index.html'
 
-    # Function for user searching
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        search_input = self.request.GET.get('search_area') or ''
 
+        # Tabs count
+        context['tab_count'] = context['tabs'].count()
+
+        # User searching
+        search_input = self.request.GET.get('search_area') or ''
         if search_input:
             context['tabs'] = context['tabs'].filter(
                 title__icontains=search_input
                 # title__startswith=search_input
             )
-
         context['search_input'] = search_input
 
         return context

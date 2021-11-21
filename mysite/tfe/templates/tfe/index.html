@@ -1,15 +1,24 @@
 {% extends 'tfe/main.html' %}
 {% block content %}
-    {% if request.user.is_authenticated %}
-        <p>{{ request.user }}</p>
-        <a href="{% url 'tfe:logout' %}">Logout</a>
-    {% else %}
-        <a href="{% url 'tfe:login' %}">Login</a>
-    {% endif %}
+    
+    <div class="header-bar">
+        <div>
+            <h3 style="margin: 0">TFE has {{ tab_count }} tab{{ tab_count|pluralize:"s" }} submitted by users!</h1>
+        </div>
+    </div>
+
+    <div class="login-bar">
+        {% if request.user.is_authenticated %}
+            <p>You are logged in as: {{ request.user }}</p>
+            <a href="{% url 'tfe:logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'tfe:login' %}">Login</a>
+        {% endif %}
+    </div>
 
     <hr>
 
-    <h1>Tabs For Everyone</h1>
+    <h1>Tab list:</h1>
 
     <a href="{% url 'tfe:tab_create' %}">Add tab</a>
 
@@ -36,4 +45,5 @@
                 <h3>No tabs in list</h3>
         {% endfor %}
     </table>
+
 {% endblock content %}
