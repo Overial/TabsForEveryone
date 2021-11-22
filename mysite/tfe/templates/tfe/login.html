@@ -1,14 +1,18 @@
 {% extends 'tfe/main.html' %}
 {% block content %}
 
-<h1>Log in to TFE</h1>
+<div class="user-bar">
+	<h1>LOG IN TO TFE</h1>
+</div>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Login">
-</form>
+<div class="tab-form">
+	<form method="POST">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+	    <input style="margin-top: 4%;" class="custom-button" type="submit" value="Login">
+	</form>
+</div>
 
-<p>Don't have an account yet? <a href="{% url 'tfe:register' %}">Register</a></p>
+<p style="padding: 1%">Don't have an account yet? <a href="{% url 'tfe:register' %}">Register</a></p>
 
 {% endblock content %}

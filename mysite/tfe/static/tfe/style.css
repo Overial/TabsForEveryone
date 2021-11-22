@@ -15,10 +15,6 @@ body {
 	overflow-x: hidden;
 }
 
-a {
-	color: lime;
-}
-
 input[type=text],
 input[type=password],
 textarea {
@@ -31,6 +27,10 @@ textarea {
 label {
 	padding-top: 1%;
 	display: block;
+}
+
+a {
+	text-decoration: underline;
 }
 
 .wrapper {
@@ -93,33 +93,11 @@ label {
 	display: flex;
 }
 
-.search-button {
+.custom-button {
 	background-color: green;
 	border: 1px solid;
 	border-radius: 5px;
 	color: aqua;
-	margin-left: 2%;
-	padding: 10px;
-	cursor: pointer;
-	font-size: 120%;
-}
-
-.create-button {
-	background-color: green;
-	border: 1px solid;
-	border-radius: 5px;
-	color: aqua;
-	padding: 10px;
-	cursor: pointer;
-	font-size: 120%;
-}
-
-.submit-button {
-	background-color: green;
-	border: 1px solid;
-	border-radius: 5px;
-	color: aqua;
-	margin-top: 3%;
 	padding: 10px;
 	cursor: pointer;
 	font-size: 120%;
