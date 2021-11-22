@@ -1,14 +1,24 @@
 {% extends 'tfe/main.html' %}
 {% block content %}
 
-<h1>Register</h1>
+<div class="user-bar">
+	<h1>REGISTER</h1>
+</div>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Register">
-</form>
+<div class="tab-form">
+	<form method="POST">
+		{% csrf_token %}
+		<!-- {{ form.as_p }} -->
+		<label>{{ form.username.label }}</label>
+		{{ form.username }}
+		<label>{{ form.password1.label }}</label>
+		{{ form.password1 }}
+		<label>{{ form.password2.label }}</label>
+		{{ form.password2 }}
+	</form>
+</div>
 
-<p>Already have an account? <a href="{% url 'tfe:login' %}">Login</a></p>
+<input style="margin-left: 1%;" class="custom-button" type="submit" value="REGISTER">
+<p style="margin-left: 1%; margin-top: 1%;">Already have an account? <a href="{% url 'tfe:login' %}">Login</a></p>
 
 {% endblock content %}
