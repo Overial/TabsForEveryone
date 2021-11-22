@@ -19,6 +19,11 @@
 </div>
 
 <input style="margin-left: 1%;" class="custom-button" type="submit" value="REGISTER">
-<p style="margin-left: 1%; margin-top: 1%;">Already have an account? <a href="{% url 'tfe:login' %}">Login</a></p>
+<p style="margin-left: 1%; margin-top: 1%;">
+	Already have an account?
+	<a style="text-decoration: underline;" href="{% url 'tfe:login' %}">
+			Login
+	</a>
+</p>
 
 {% endblock content %}

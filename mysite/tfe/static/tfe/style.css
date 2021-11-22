@@ -10,11 +10,13 @@ html {
 }
 
 body {
-    height: 100%;
+    height: 88%;
 	overflow-x: hidden;
-	background: url("images/bg_image.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+	background: url("images/bg_image.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
 input[type=text],
@@ -44,7 +46,7 @@ a {
 	position: relative;
 	width: 100%;
 	height: 12%;
-	border: 1px solid white;
+	border: 1px solid #8f90a1;
 	border-radius: 10px;
 	background-color: white;
 	display: flex;
@@ -58,7 +60,7 @@ a {
 	min-height: 88%;
 	margin: auto;
 	padding: 15px;
-	border: 1px solid white;
+	border: 1px solid #8f90a1;
 	border-radius: 25px;
 	background-color: #5a6570;
 }
@@ -68,7 +70,7 @@ a {
 	width: 100%;
 	height: 12%;
 	border-radius: 10px;
-	border: 1px solid white;
+	border: 1px solid #8f90a1;
 	background-color: white;
 	display: flex;
 	justify-content: space-around;
@@ -82,6 +84,7 @@ a {
 	color: lime;
 	padding: 10px;
 	border-radius: 5px;
+	border: 1px solid #8f90a1;
 	background: linear-gradient(90deg, black, green);
 }
 
@@ -129,4 +132,8 @@ a {
 	display: flex;
 	margin-top: 5px;
 	padding: 1%;
+}
+
+.tab-detail {
+	padding: 10px;
 }

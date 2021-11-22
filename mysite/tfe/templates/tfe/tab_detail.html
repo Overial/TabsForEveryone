@@ -1,8 +1,13 @@
 {% extends 'tfe/main.html' %}
 {% block content %}
 
-<h1>Tab: {{ tab }}</h1>
-<img src="{{ tab.tab_image.url }}">
-<a href="{% url 'tfe:tabs' %}">Go back</a>
+<div class="user-bar">
+	<a href="{% url 'tfe:tabs' %}"><p>&#8592; GO BACK</p></a>
+</div>
+
+<div class="tab-detail">
+	<h1>Tab: {{ tab }}</h1>
+	<img style="margin-top: 1%;" src="{{ tab.tab_image.url }}">
+</div>
 
 {% endblock content %}
