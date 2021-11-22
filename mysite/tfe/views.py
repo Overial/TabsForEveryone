@@ -5,7 +5,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import Permission
 from django.contrib.auth import login
 from django.urls import reverse_lazy
 
@@ -64,7 +63,8 @@ class TabList(ListView):
         search_input = self.request.GET.get('search_area') or ''
         if search_input:
             context['tabs'] = context['tabs'].filter(
-                title__icontains=search_input
+                title__icontains=search_input,
+                band__icontains=search_input
                 # title__startswith=search_input
             )
         context['search_input'] = search_input

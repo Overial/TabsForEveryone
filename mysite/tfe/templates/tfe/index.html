@@ -33,7 +33,7 @@
                 <td>{{ tab.band }} – {{ tab.title }}</td>
                 <td><a href="{% url 'tfe:tab' tab.id %}">View</a></td>
                 <td><a href="{% url 'tfe:tab_update' tab.id %}">Edit</a></td>
-                <td><a href="{% url 'tfe:tab_delete' tab.id %}">Delete</a></td>
+                <!-- <td><a href="{% url 'tfe:tab_delete' tab.id %}">Delete</a></td> -->
             </tr>
             {% empty %}
                 <h3>No tabs in list</h3>
