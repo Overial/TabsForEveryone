@@ -16,10 +16,18 @@
 <body>
 	<div class="wrapper">
 		<div class="header-bar">
-	       <div>
-	            <h3>TFE has {{ tab_count }} tab{{ tab_count|pluralize:"s" }} submitted by users!</h3>
+			<div>
+				<a href="{% url 'tfe:tabs' %}">
+					<img src="{% static 'tfe/images/bass_guitar_logo.png' %}" alt="logo" width="100px" height="100px">
+				</a>
+			</div>
+
+			<h1>TABS FOR EVERYONE</h1>
+
+			<div class="logo-tab-counter">
+	            <h1>TFE has {{ tab_count }} tab{{ tab_count|pluralize:"s" }} submitted by users!</h1>
 	        </div>
-	    </div>
+		</div>
 
 		<div class="container">
 			{% block content %}
@@ -29,7 +37,7 @@
 
 		<footer class="footer-bar">
 			<div>
-				<h3>IDB-19-07, Afanasyev V.A.</h3>
+				<h1>IDB-19-07, Afanasyev V.A.</h1>
 			</div>
 		</footer>
 	</div>

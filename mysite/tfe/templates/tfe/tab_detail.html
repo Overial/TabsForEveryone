@@ -1,3 +1,8 @@
+{% extends 'tfe/main.html' %}
+{% block content %}
+
 <h1>Tab: {{ tab }}</h1>
 <img src="/media/images/nirvana_smells_like_teen_spirit.png">
 <a href="{% url 'tfe:tabs' %}">Go back</a>
+
+{% endblock content %}
