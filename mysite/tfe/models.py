@@ -11,6 +11,7 @@ class Tab(models.Model):
     instrument = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     tab_image = models.ImageField(upload_to='images/')
+    audio_file = models.FileField()
 
     def __str__(self):
         return self.band + ' – ' + self.title

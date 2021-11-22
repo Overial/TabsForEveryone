@@ -60,14 +60,14 @@ class TabList(ListView):
         context['tab_count'] = context['tabs'].count()
 
         # User searching
-        search_input = self.request.GET.get('search_area') or ''
-        if search_input:
+        title_search_input = self.request.GET.get('search_area') or ''
+        if title_search_input:
             context['tabs'] = context['tabs'].filter(
-                title__icontains=search_input,
-                band__icontains=search_input
-                # title__startswith=search_input
+                # title__icontains=search_input,
+                title__startswith=title_search_input,
             )
-        context['search_input'] = search_input
+
+        context['title_search_input'] = title_search_input
 
         return context
 
@@ -80,7 +80,7 @@ class TabDetail(DetailView):
 
 class TabCreate(LoginRequiredMixin, CreateView):
     model = Tab
-    fields = ['band', 'album', 'title', 'instrument', 'description', 'tab_image']
+    fields = ['band', 'album', 'title', 'instrument', 'description', 'tab_image', 'audio_file']
     success_url = reverse_lazy('tfe:tabs')
 
 

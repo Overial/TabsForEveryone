@@ -1,6 +1,23 @@
 {% extends 'tfe/main.html' %}
 {% block content %}
 
+{% load static %}
+<img id="light-bulb" onclick="changeImage()" src="{% static 'tfe/images/light_bulb_off.jpg' %}" width="100px" height="200px">
+
+<p style="font-weight: bold; color: white;">Specially for Julia Sergeevna :)</p>
+
+<script>
+	function changeImage() {
+	  var image = document.getElementById('light-bulb');
+	  if (image.src.match("on")) {
+	  	image.src = "{% static 'tfe/images/light_bulb_off.jpg' %}";
+	  }
+	  else {
+	  	image.src = "{% static 'tfe/images/light_bulb_on.jpg' %}";
+	  }
+	}
+</script>
+
 <div class="user-bar">
 	<a href="{% url 'tfe:tabs' %}"><p>&#8592; GO BACK</p></a>
 </div>
@@ -9,5 +26,9 @@
 	<h1>Tab: {{ tab }}</h1>
 	<img style="margin-top: 1%;" src="{{ tab.tab_image.url }}">
 </div>
+
+<audio controls>
+    <source src="{{ tab.audio_file.url }}" type="audio/mpeg">
+</audio>
 
 {% endblock content %}
