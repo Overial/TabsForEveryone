@@ -12,17 +12,17 @@
 
     <h1 class="tab-list-text">TAB LIST:</h1>
     {% if tab_count > 0 %}
-        <h1>TFE has {{ tab_count }} tab{{ tab_count|pluralize:"s" }} submitted by users!</h1>
+        <h2>TFE has {{ tab_count }} tab{{ tab_count|pluralize:"s" }} submitted by users!</h2>
     {% else %}
-        <h1>TFE has 0 tab{{ tab_count|pluralize:"s" }} submitted by users!</h1>
+        <h2>TFE has 0 tab{{ tab_count|pluralize:"s" }} submitted by users!</h2>
     {% endif %}
 
     <div class="search-create-wrapper">
         <form method="GET" class="search-area">
             <input type="text" name="search_area" value="{{ search_input }}">
-            <input class="search-button" type="submit" value="SEARCH">
+            <input style="margin-left: 2%;" class="custom-button" type="submit" value="SEARCH">
         </form>
-        <a class="create-button" href="{% url 'tfe:tab_create' %}">CREATE PIECE OF ART</a>
+        <a class="custom-button" href="{% url 'tfe:tab_create' %}">CREATE PIECE OF ART</a>
     </div>
 
     <div class="tab-list-wrapper">

@@ -11,8 +11,10 @@ html {
 
 body {
     height: 100%;
-    background-color: grey;
 	overflow-x: hidden;
+	background: url("images/bg_image.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 input[type=text],
@@ -30,7 +32,7 @@ label {
 }
 
 a {
-	text-decoration: underline;
+	color: lime;
 }
 
 .wrapper {
@@ -42,31 +44,32 @@ a {
 	position: relative;
 	width: 100%;
 	height: 12%;
-	background-color: white;
 	border-radius: 10px;
+	background-color: white;
 	display: flex;
 	align-items: center;
+	background: linear-gradient(90deg, black, green);
 }
 
 .container {
 	position: relative;
 	max-width: 1100px;
-	height: 100%;
 	margin: auto;
 	padding: 15px;
-	background-color: #9196a1;
 	border-radius: 25px;
+	background-color: #5a6570;
 }
 
 .footer-bar {
 	position: relative;
 	width: 100%;
 	height: 12%;
-	background-color: white;
 	border-radius: 10px;
+	background-color: white;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	background: linear-gradient(90deg, black, green);
 }
 
 .user-bar {
