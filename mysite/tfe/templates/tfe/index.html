@@ -3,25 +3,44 @@
 
     <div class="user-bar">
         {% if request.user.is_authenticated %}
-            <p>You are logged in as: {{ request.user }}</p>
-            <a href="{% url 'tfe:logout' %}">Logout</a>
+            <p>YOU ARE LOGGED IN AS: {{ request.user }}</p>
+            <a href="{% url 'tfe:logout' %}">LOGOUT</a>
         {% else %}
-            <a href="{% url 'tfe:login' %}">Login</a>
+            <a href="{% url 'tfe:login' %}">LOGIN</a>
         {% endif %}
     </div>
 
-    <hr>
+    <h1 class="tab-list-text">TAB LIST:</h1>
+    {% if tab_count > 0 %}
+        <h1>TFE has {{ tab_count }} tab{{ tab_count|pluralize:"s" }} submitted by users!</h1>
+    {% else %}
+        <h1>TFE has 0 tab{{ tab_count|pluralize:"s" }} submitted by users!</h1>
+    {% endif %}
 
-    <h1>Tab list:</h1>
+    <div class="search-create-wrapper">
+        <form method="GET" class="search-area">
+            <input type="text" name="search_area" value="{{ search_input }}">
+            <input class="search-button" type="submit" value="SEARCH">
+        </form>
+        <a class="create-button" href="{% url 'tfe:tab_create' %}">CREATE PIECE OF ART</a>
+    </div>
 
-    <a href="{% url 'tfe:tab_create' %}">Add tab</a>
+    <div class="tab-list-wrapper">
+        {% for tab in tabs %}
+            <div class="tab-wrapper">
+                <div class="tab-band-title">
+                    <p>{{ tab.band }} – {{ tab.title }}</p>
+                    <a href="{% url 'tfe:tab' tab.id %}">View</a>
+                    <a href="{% url 'tfe:tab_update' tab.id %}">Edit</a>
+                </div>
+            </div>
 
-    <form method="GET">
-        <input type="text" name="search_area" value="{{ search_input }}">
-        <input type="submit" value="Search">
-    </form>
+            {% empty %}
+                <h3>No tabs in list</h3>
+        {% endfor %}
+    </div>
 
-    <table>
+    <!-- <table>
         <tr>
             <th>Tabs:</th>
             <th></th>
@@ -33,11 +52,11 @@
                 <td>{{ tab.band }} – {{ tab.title }}</td>
                 <td><a href="{% url 'tfe:tab' tab.id %}">View</a></td>
                 <td><a href="{% url 'tfe:tab_update' tab.id %}">Edit</a></td>
-                <!-- <td><a href="{% url 'tfe:tab_delete' tab.id %}">Delete</a></td> -->
+                <td><a href="{% url 'tfe:tab_delete' tab.id %}">Delete</a></td>
             </tr>
             {% empty %}
                 <h3>No tabs in list</h3>
         {% endfor %}
-    </table>
+    </table> -->
 
 {% endblock content %}

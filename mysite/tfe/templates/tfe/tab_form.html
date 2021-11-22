@@ -1,12 +1,16 @@
 {% extends 'tfe/main.html' %}
 {% block content %}
 
-<h3>Task Form</h3>
-<a href="{% url 'tfe:tabs' %}">Go back</a>
-<form method="POST" action="" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit tab">
-</form>
+<div class="user-bar">
+	<a href="{% url 'tfe:tabs' %}"><p>&#8592; GO BACK</p></a>
+</div>
+
+<div class="tab-form">
+	<form method="POST" action="" enctype="multipart/form-data">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+    	<input class="submit-button" type="submit" value="SUBMIT TAB">
+	</form>
+</div>
 
 {% endblock content %}
