@@ -10,7 +10,7 @@
         {% endif %}
     </div>
 
-    <h1 class="tab-list-text">TAB LIST:</h1>
+    <h1 style="color: #e00000" class="tab-list-text">TAB LIST:</h1>
     {% if tab_count > 0 %}
         <h2>TFE has {{ tab_count }} tab{{ tab_count|pluralize:"s" }} submitted by users!</h2>
     {% endif %}
@@ -28,8 +28,8 @@
             <div class="tab-wrapper">
                 <div class="tab-band-title">
                     <p>{{ tab.band }} – {{ tab.title }}</p>
-                    <a href="{% url 'tfe:tab' tab.id %}">View</a>
-                    <a href="{% url 'tfe:tab_update' tab.id %}">Edit</a>
+                    <a style="color: blue" href="{% url 'tfe:tab' tab.id %}">View</a>
+                    <a style="color: green" href="{% url 'tfe:tab_update' tab.id %}">Edit</a>
                 </div>
             </div>
 
