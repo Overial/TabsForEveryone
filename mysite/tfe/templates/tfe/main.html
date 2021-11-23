@@ -10,6 +10,11 @@
 	<link rel="preconnect" type="text/css" href="https://fonts.gstatic.com" crossorigin>
 	<link type="text/css" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
+	<!-- load logo -->
+	{% load static %}
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'tfe/images/bass_guitar_logo.png' %}">
+
+	<!-- load styles -->
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'tfe/style.css' %}">
 </head>
@@ -27,7 +32,7 @@
 
 		<div class="container">
 			{% block content %}
-				<!-- Content goes here -->
+				<!-- content goes here -->
 			{% endblock content %}
 		</div>
 
