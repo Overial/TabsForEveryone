@@ -4,7 +4,7 @@
 {% load static %}
 <img id="light-bulb" onclick="changeImage()" src="{% static 'tfe/images/light_bulb_off.jpg' %}" width="100px" height="200px">
 
-<p style="font-weight: bold; color: white;">Specially for Julia Sergeevna :)</p>
+<p style="font-weight: bold; color: white;">Specifically for Julia Sergeevna :)</p>
 
 <script>
 	function changeImage() {
@@ -30,5 +30,10 @@
 <audio controls>
     <source src="{{ tab.audio_file.url }}" type="audio/mpeg">
 </audio>
+
+<div class="tab-description">
+	<h3>Description:</h3>
+	{{ tab.description }}
+</div>
 
 {% endblock content %}
