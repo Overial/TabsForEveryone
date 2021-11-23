@@ -113,6 +113,10 @@ a {
 	font-size: 120%;
 }
 
+.custom-button:hover {
+	color: #2b56ff;
+}
+
 .tab-wrapper {
 	display: flex;
 	justify-content: space-between;
